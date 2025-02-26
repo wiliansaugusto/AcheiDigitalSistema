@@ -35,10 +35,10 @@ public class UsuarioDTO {
     @Email(message = "O campo EMAIL deve ser um endereço de e-mail válido")
     String email;
 
-    @Size(min = 8)
+    @Size(min=8, message = "deve conter no minimo 8 caracteres")
     @NotNull(message = "Campo senha nao pode ser nulo")
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&*()!])[A-Za-z\\d@#$%^&*()!]{8,}$",
-            message = "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.")
+            message = "A senha está com problemas de segurança.")
     String senha;
 
     @Column(name = "isAtivo")

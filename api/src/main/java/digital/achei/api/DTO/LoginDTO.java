@@ -21,10 +21,10 @@ public class LoginDTO {
     @Pattern(regexp = "^\\d{11}$", message = "Campo CPF deve conter exatamente 11 dígitos numéricos")
     private String cpf;
 
-    @Size(min=8)
+    @Size(min=8, message = "deve conter no minimo 8 caracteres")
     @NotNull(message = "Campo senha nao pode ser nulo")
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&*()!])[A-Za-z\\d@#$%^&*()!]{8,}$",
-            message = "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.")
+            message = "A senha está com problemas de segurança.")
     String senha;
 
     @OneToOne

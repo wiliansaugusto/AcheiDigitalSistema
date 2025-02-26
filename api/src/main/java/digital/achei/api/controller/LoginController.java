@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = {"http://localhost:4200", "http://192.168.1.105:4200"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://192.168.1.100:4200"})
 public class LoginController {
     private static final Logger log = LogManager.getLogger(LoginController.class);
 

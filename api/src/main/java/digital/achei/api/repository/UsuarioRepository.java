@@ -4,10 +4,11 @@ import digital.achei.api.DTO.UsuarioDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-
+@Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioDTO, Long> {
     @Query("SELECT e FROM UsuarioDTO e WHERE e.cpf = :cpf")
     Optional<UsuarioDTO> findByCpf(@Param("cpf") String cpf);

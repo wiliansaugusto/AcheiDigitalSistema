@@ -16,5 +16,7 @@ public class ProtegidoHumanoResponse {
     ProtegidoHumanoDTO protegido;
     List<ContatoDTO> contato;
     List<EnderecoDTO> endereco;
+    String email;
+    String nomeUsuario;
 
 }

@@ -199,21 +199,21 @@ public class UsuarioService {
 
         if (tipo.equals("salvar")) {
             if (resposta.isPresent()) {
-                log.info("CPF já cadastrado", usuarioDTO.getCpf());
-                throw new BasicException("CPF ja cadastrado", HttpStatus.CONFLICT);
+                log.info("CPF já cadastrado por outro usuário", usuarioDTO.getCpf());
+                throw new BasicException("CPF já cadastrado por outro usuário", HttpStatus.CONFLICT);
             }
             if (usuarioPorEmail.isPresent()) {
-                log.info("Email já cadastrado", usuarioDTO.getCpf());
-                throw new BasicException("Email ja cadastrado", HttpStatus.CONFLICT);
+                log.info("Email já cadastrado por outro usuário", usuarioDTO.getCpf());
+                throw new BasicException("Email já cadastrado por outro usuário", HttpStatus.CONFLICT);
             }
         } else if (tipo.equals("editar")) {
             if ((resposta.isPresent() && !resposta.get().getIdUsuario().equals(usuarioDTO.getIdUsuario()))) {
-                log.info("CPF já cadastrado", usuarioDTO.getCpf());
-                throw new BasicException("CPF ja cadastrado", HttpStatus.CONFLICT);
+                log.info("CPF já cadastrado por outro usuário", usuarioDTO.getCpf());
+                throw new BasicException("CPF já cadastrado por outro usuário", HttpStatus.CONFLICT);
             }
             if ((usuarioPorEmail.isPresent() && !usuarioPorEmail.get().getIdUsuario().equals(usuarioDTO.getIdUsuario()))) {
-                log.info("Email já cadastrado", usuarioDTO.getEmail());
-                throw new BasicException("Email ja cadastrado", HttpStatus.CONFLICT);
+                log.info("Email já cadastrado por outro usuário", usuarioDTO.getEmail());
+                throw new BasicException("Email já cadastrado por outro usuário", HttpStatus.CONFLICT);
             }
         }
 

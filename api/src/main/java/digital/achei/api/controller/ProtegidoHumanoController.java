@@ -11,11 +11,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = {"http://localhost:4200", "http://192.168.1.105:4200"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://192.168.1.100:4200"})
 public class ProtegidoHumanoController {
 
     private static final Logger log = LogManager.getLogger(ProtegidoHumanoController.class);
@@ -48,5 +49,10 @@ public class ProtegidoHumanoController {
 
         Optional<ProtegidoHumanoDTO> result = protegidoHumanoService.deletarProtegido(id);
         return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+    @GetMapping("listar-protegidos-por-usuario/{id}")
+    ResponseEntity pesquisarProtegidosPorUsuarios(@PathVariable Long id){
+        List<ProtegidoHumanoDTO> result = protegidoHumanoService.pesquisarProtegidoHumanoPorUsuario(id);
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 }

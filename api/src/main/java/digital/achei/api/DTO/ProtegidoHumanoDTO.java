@@ -30,16 +30,20 @@ public class ProtegidoHumanoDTO {
     @Digits(integer = 1, fraction = 2,message = "Altura invalida deve ser um numero com 1 interios e 2 decimais")
     BigDecimal altura;
 
-    @Digits(integer = 3, fraction = 2, message = "Peso invalido deve ser um numero com 3 interios e 2 decimais")
+    @Digits(integer = 3, fraction = 3, message = "Peso invalido deve ser um numero com 3 interios e 3 decimais")
     BigDecimal peso;
 
-    String patolgias;
+    String patologias;
 
     String alergias;
 
     String usoMedicacoes;
 
     String observacoesGerais;
+
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    String imagem;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")

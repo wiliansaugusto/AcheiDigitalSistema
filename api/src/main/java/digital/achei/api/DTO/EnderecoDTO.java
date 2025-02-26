@@ -40,7 +40,7 @@ public class EnderecoDTO {
     @Length(min = 2, max = 2)
     String estadoSigla;
 
-    @Size(min = 8, max = 8)
+    @Size(min = 8, max = 9)
     String cep;
 
     @ManyToOne
@@ -51,8 +51,5 @@ public class EnderecoDTO {
     @Column(name = "dataAlteracao")
     @Temporal(TemporalType.TIMESTAMP)
     Date dataAlteracao = new Date();
-
-
-
 
 }
