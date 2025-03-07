@@ -19,10 +19,11 @@ return new class extends Migration
             $table->string('peso', 6);
             $table->string('raca')->nullable();
             $table->string('especie')->nullable();
-            $table->longText('patologias');
-            $table->longText('uso_medicacoes');
-            $table->longText('observacoes_gerais');
-            $table->longText('imagem');
+            $table->longText('patologias')->nullable();
+            $table->longText('uso_medicacoes')->nullable();
+            $table->longText('observacoes_gerais')->nullable();
+            $table->longText('imagem')->nullable();
+            $table->longText('alergias')->nullable();
             $table->date('dataNascimento')->nullable();
             $table->timestamp('dataCriacao')->useCurrent();
             $table->timestamp('dataAlteracao')->nullable();

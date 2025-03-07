@@ -15,7 +15,7 @@ class TagPetController extends Controller
         try {
             $tag = TagPet::where('idTagPet', $request->idTagPet)->first();
             if ($tag) {
-                return response()->json(['message' => 'Tag já cadastrada']);
+                return response()->json(['message' => 'Tag já cadastrada'], 400);
             }
         } catch (\Exception $e) {
             return response()->json(['message' => 'Erro ao cadastrar tag']);
@@ -71,7 +71,9 @@ class TagPetController extends Controller
     public function listarTagIDPet($id)
     {
         try {
-            $tag = TagPet::where('id_usuario', $id)->get();
+            $tag = TagPet::join("protegido_pets", "tag_pets.id_protegido_pet", "=", "protegido_pets.id_protegido_pet")
+                ->select('protegido_pets.nome_protegido_pet',  'tag_pets.idTagPet', 'tag_pets.id_protegido_pet', 'tag_pets.id_usuario')
+                ->where('tag_pets.id_usuario', $id)->get();
             return response()->json($tag, 200);
         } catch (\Exception $e) {
             return response()->json(["mensagem" => $e], 404);

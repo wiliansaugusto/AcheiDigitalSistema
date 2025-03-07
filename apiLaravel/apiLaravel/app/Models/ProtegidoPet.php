@@ -20,6 +20,7 @@ class ProtegidoPet extends Model
         'raca',
         'especie',
         'id_usuario',
+        'alergias'
 
     ];
 

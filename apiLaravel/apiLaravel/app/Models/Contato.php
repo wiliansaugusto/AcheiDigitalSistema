@@ -14,6 +14,9 @@ class Contato extends Model
         'tp_contato',
         'ds_contato',
         'id_usuario',
+        'contato_extra',
+        'nome_extra'
+
     ];
 
     protected $casts = [

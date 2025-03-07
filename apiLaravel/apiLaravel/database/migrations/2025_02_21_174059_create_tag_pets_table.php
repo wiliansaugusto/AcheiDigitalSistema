@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tag_pets', function (Blueprint $table) {
-            $table->bigIncrements('idTagPet');
+            $table->bigInteger('idTagPet')->primary();
             $table->unsignedBigInteger('id_protegido_pet');
             $table->foreign('id_protegido_pet')->references('id_protegido_pet')->on('protegido_pets')->onDelete('cascade');
             $table->unsignedBigInteger('id_usuario');

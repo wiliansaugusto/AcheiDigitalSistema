@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id_usuario');
             $table->string('nomeCompleto', 100);
             $table->string('cpf', 11)->nullable();
-            $table->string('email')->nullable();
+            $table->string('email');
             $table->string('senha');
             $table->boolean('isAtivo')->default(true);
             $table->date('dataNascimento')->nullable();

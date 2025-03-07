@@ -15,7 +15,7 @@ class TagHumanoController extends Controller
         try {
             $tag = TagHumano::where('idTag', $request->idTag)->first();
             if ($tag) {
-                return response()->json(['message' => 'Tag já cadastrada']);
+                return response()->json(['message' => 'Tag já cadastrada'], 404);
             }
         } catch (Exception $e) {
             return response()->json(['message' => 'Erro ao cadastrar tag']);
@@ -71,7 +71,10 @@ class TagHumanoController extends Controller
     public function listarTagID($id)
     {
         try {
-            $tag = TagHumano::where('id_usuario', $id)->get();
+            $tag = TagHumano::join("protegidos_humano", "tag_humanos.idProtegido", "=", "protegidos_humano.id_protegido_humano")
+                ->select('protegidos_humano.nome_protegido',  'tag_humanos.idTag', 'tag_humanos.idProtegido', 'tag_humanos.id_usuario')
+                ->where('tag_humanos.id_usuario', $id)->get();
+
             return response()->json($tag, 200);
         } catch (\Exception $e) {
             return response()->json(["mensagem" => $e], 404);

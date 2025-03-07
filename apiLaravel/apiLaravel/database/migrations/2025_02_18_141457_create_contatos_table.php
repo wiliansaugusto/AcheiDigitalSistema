@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('tp_contato', 20);
             $table->string('ds_contato', 100);
             $table->timestamp('dataAlteracao')->useCurrent();
+            $table->boolean('contato_extra')->default(0);
+            $table->string('nome_extra')->nullable();
             $table->unsignedBigInteger('id_usuario'); // Chave estrangeira
             // Define a foreign key (equivalente ao @ManyToOne)
             $table->foreign('id_usuario')

@@ -37,6 +37,8 @@ Route::get('/usuario-listar-protegido/{id}', [UsuarioController::class, 'buscarU
 
 Route::post('/editar-contato', [ContatoController::class, 'store']);
 Route::delete('/deletar-contato/{idContato}/{idUsuario}', [ContatoController::class, 'destroy']);
+Route::post('/contato-extra', [ContatoController::class, 'storeContatoExtra']);
+Route::get('/listar-contato-extra/{idContato}', [ContatoController::class, 'listarContatoExtra']);
 
 Route::post('/editar-endereco', [EnderecoController::class, 'store']);
 Route::delete('/deletar-endereco/{idEndereco}/{idUsuario}', [EnderecoController::class, 'destroy']);
